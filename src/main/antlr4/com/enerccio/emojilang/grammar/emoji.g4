@@ -40,7 +40,7 @@ block:
 	;
 	
 modulePath:
-	identifier ('.' identifier) EndOfStatementEmoji
+	identifier ('.' identifier)* EndOfStatementEmoji
 	;
 	
 identifier:

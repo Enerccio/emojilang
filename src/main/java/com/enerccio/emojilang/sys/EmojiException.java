@@ -1,6 +1,6 @@
 package com.enerccio.emojilang.sys;
 
-public class EmojiException extends Exception {
+public class EmojiException extends RuntimeException {
 	private static final long serialVersionUID = 21546175312280461L;
 	
 	public EmojiException() {
