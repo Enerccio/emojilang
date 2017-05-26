@@ -3,23 +3,30 @@ package com.enerccio.emojilang.lang.values;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.enerccio.emojilang.sys.EmojiException;
+import com.enerccio.emojilang.lang.Builtins;
+import com.enerccio.emojilang.runtime.EmojiRuntime;
 
-public abstract class EmojiObjectBase extends EmojiValue {
+public abstract class EmojiObjectBase extends EmojiValue implements EmojiInstance {
 	
 	private Map<String, EmojiValue> bindings = new HashMap<String, EmojiValue>();
 
+
 	@Override
-	public EmojiValue performOperation(String operation, EmojiValue... emojiValues) throws EmojiException {
-		throw operationFailure(operation, emojiValues);
+	public EmojiValue access(EmojiRuntime runtime, String name) {
+		if (!bindings.containsKey(name)) {
+			runtime.throwException(Builtins.BT_EXC_NAME_ERROR, "Undefined field <" + name + ">");
+			return EmojiNul.INSTANCE;
+		}
+		return bindings.get(name);
 	}
 
-	public Map<String, EmojiValue> getBindings() {
+	@Override
+	public void write(EmojiRuntime runtime, String name, EmojiValue value) {
+		bindings.put(name, value);
+	}
+
+	protected Map<String, EmojiValue> getBindings() {
 		return bindings;
 	}
-
-	public void setBindings(Map<String, EmojiValue> bindings) {
-		this.bindings = bindings;
-	}
-
+	
 }

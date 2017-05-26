@@ -1,10 +1,10 @@
 package com.enerccio.emojilang.lang.values;
 
-public class EmojiModule extends EmojiObjectBase {
+public class EmojiString extends EmojiConstBase {
 
 	@Override
 	public EmojiValueType getType() {
-		return EmojiValueType.MODULE;
+		return EmojiValueType.STRING;
 	}
-
+	
 }
