@@ -15,7 +15,7 @@ public abstract class EmojiObjectBase extends EmojiValue implements EmojiInstanc
 	public EmojiValue access(EmojiRuntime runtime, String name) {
 		if (!bindings.containsKey(name)) {
 			runtime.throwException(Builtins.BT_EXC_NAME_ERROR, "Undefined field <" + name + ">");
-			return EmojiNul.INSTANCE;
+			return EmojiNil.INSTANCE;
 		}
 		return bindings.get(name);
 	}

@@ -1,12 +1,12 @@
 package com.enerccio.emojilang.lang.values;
 
-import java.nio.ByteBuffer;
+import java.io.OutputStream;
 
 public interface EmojiConstant {
 	
-	public byte writeTag();
-	public void writeToBytecode(ByteBuffer buffer);
-	public void readFromBytecode(ByteBuffer buffer);
+	public String writeTag();
+	public void writeToBytecode(OutputStream buffer);
+	public void readFromBytecode(OutputStream buffer);
 
 	public static EmojiConstant parseTag() {
 		return null;

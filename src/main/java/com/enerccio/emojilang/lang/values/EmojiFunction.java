@@ -1,6 +1,6 @@
 package com.enerccio.emojilang.lang.values;
 
-import java.nio.ByteBuffer;
+import java.io.OutputStream;
 
 import com.enerccio.emojilang.bytecode.BytecodeContainer;
 import com.enerccio.emojilang.runtime.EmojiRuntime;
@@ -15,12 +15,12 @@ public class EmojiFunction extends EmojiValue implements EmojiConstant, EmojiCal
 	private transient BytecodeContainer bytecode;
 	
 	@Override
-	public void writeToBytecode(ByteBuffer buffer) {
+	public void writeToBytecode(OutputStream buffer) {
 		
 	}
 
 	@Override
-	public void readFromBytecode(ByteBuffer buffer) {
+	public void readFromBytecode(OutputStream buffer) {
 		
 	}
 	
@@ -62,7 +62,7 @@ public class EmojiFunction extends EmojiValue implements EmojiConstant, EmojiCal
 	}
 
 	@Override
-	public byte writeTag() {
+	public String writeTag() {
 		return getType().tag;
 	}
 
